@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+h2 {
+  color: #333;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Subir archivo .txt</h2>
+<form action="cargar" method="post" enctype="multipart/form-data">
+  <label for="file">Selecciona un archivo:</label>
+  <input type="file" id="file" name="file" accept=".txt">
+  <input type="submit" value="Subir">
+</form>
+
+<button onclick="submitForm()">Siguiente</button>
+
+<form id="redirectForm" action="/cargar" method="post" enctype="multipart/form-data" style="display: none;">
+    <!-- Puedes agregar campos adicionales si es necesario -->
+    <!-- <input type="hidden" name="campo" value="valor"> -->
+</form>
+
+<script>
+function submitForm() {
+    // Obtén el formulario por su ID
+    var form = document.getElementById('redirectForm');
+    // Envía el formulario
+    form.submit();
+}
+</script>
+
+</body>
+</html>

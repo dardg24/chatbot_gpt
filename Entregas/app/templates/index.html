@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice - Proyecto de Texto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .main-content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Proyecto de Texto</h1>
+    </header>
+
+    <section class="main-content">
+        <h2>Índice Informativo</h2>
+
+        <p>
+            Este proyecto tiene como objetivo proporcionar funcionalidades relacionadas con el procesamiento de archivos de texto. Aquí tienes un resumen de las características:
+        </p>
+
+        <ul>
+            <li>Cargar un archivo de texto</li>
+            <li>Hacer preguntas relacionadas con el texto</li>
+            <li>Mostrar respuestas y mantener un historial</li>
+        </ul>
+
+        <button onclick="redirectToTemplate()">Siguiente</button>
+    </section>
+
+    <script>
+        function redirectToTemplate() {
+            // Redirigir a template1.html
+            window.location.href = '/upload';
+        }
+    </script>
+</body>
+</html>
