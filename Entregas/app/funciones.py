@@ -15,7 +15,7 @@ def chat_gpt(api_key,question, file):
     print(qa_document_chain)
     """with open("./pregunta.txt") as f:
         file = f.read()"""
-
+    print((type(file)))
 
     # Obtener la fecha y hora actuales
     fecha_hora_actual = datetime.now()

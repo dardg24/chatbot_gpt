@@ -23,6 +23,7 @@ def text():
 #------------------------------------------------------Cargar archivo--------------------------------------------
 @app.route('/cargar', methods=['POST'])
 def procesar():
+
     if 'file' not in request.files:
         return "No se ha seleccionado ningún archivo."
 
@@ -32,9 +33,10 @@ def procesar():
         return "No se ha seleccionado ningún archivo."
 
     if archivo and archivo.filename.endswith('.txt'):
-        # Guarda el archivo en la sesión (temporalmente)
-        session['file'] = archivo.read()
-
+        # Leer y decodificar el contenido del archivo
+        contenido_archivo = archivo.read().decode('utf-8')
+        # Guardar el contenido decodificado en la sesión
+        session['file'] = contenido_archivo
         return render_template('template2.html')
 
     return "El archivo no es de tipo TXT."
@@ -61,6 +63,7 @@ def comando():
 @app.route('/consulta', methods=['GET'])
 def consulta():
 
+    print(type(session["file"]))
     registro = funciones.chat_gpt(key, session["prompt"], session["file"])
     fecha = funciones.obtener_fecha_hora_actual()
     session["registro"] = registro
@@ -73,7 +76,8 @@ def consulta():
 def resumen():
 
     registro = session["registro"]
-    return render_template('template3.html',fecha=session["fecha"], prompt=session["prompt"], respuesta=registro)
+    
+    return render_template('template3.html',fecha=registro["fecha_hora"], prompt=registro["pregunta"], respuesta=registro["respuesta"])
 
 
 
