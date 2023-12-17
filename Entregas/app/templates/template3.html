@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+h2 {
+  color: #333;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Resumen</h2>
+<p>Fecha de la pregunta: <span id="date">{{fecha}}</span></p>
+<p>Pregunta: <span id="question">{{prompt}}</span></p>
+<p>Respuesta: <span id="answer">{{respuesta}}</span></p>
+
+<h2>Historial de preguntas y respuestas</h2>
+<ul id="history">
+<!-- Aquí se agregarían las preguntas y respuestas -->
+</ul>
+
+</body>
+</html>
