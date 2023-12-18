@@ -54,5 +54,3 @@ El `Dockerfile` incluido en este repositorio se utiliza para construir la imagen
 Este proyecto está bajo la Licencia MIT. Para más detalles, ver el archivo `LICENSE`.
 
 ---
-
-*Este README fue generado automáticamente con la asistencia de ChatGPT.*
