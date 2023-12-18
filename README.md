@@ -26,9 +26,9 @@ Para ejecutar la aplicación en un contenedor Docker, sigue estos pasos:
    git clone https://github.com/dardg24/chatbot_gpt
    ```
 
-2. Construye la imagen Docker:
+2. Descarga la imagen Docker:
    ```bash
-   docker build -t mi-app-flask .
+   docker pull dardg24/mi-app-flask:v2
    ```
 
 3. Ejecuta la imagen en un contenedor:
