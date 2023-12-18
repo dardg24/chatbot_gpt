@@ -33,8 +33,13 @@ button {
 
 <h2>Historial de preguntas y respuestas</h2>
 <ul id="history">
-<!-- Aquí se agregarían las preguntas y respuestas -->
+  {% for pregunta in dataframe %}
+  <li>ID Pregunta: {{ pregunta['id_pregunta'] }}, Usuario: {{ pregunta['id_usuario'] }}, Fecha: {{ pregunta['fecha_pregunta'] }}, Pregunta: {{ pregunta['texto_pregunta'] }}, Respuesta: {{ pregunta['texto_respuesta'] }}</li>
+  {% endfor %}
 </ul>
+
+
+
 
 </body>
 </html>

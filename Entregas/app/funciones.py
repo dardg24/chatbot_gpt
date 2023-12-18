@@ -5,6 +5,8 @@ from langchain.chat_models import ChatOpenAI
 from langchain.chains.question_answering import load_qa_chain
 from datetime import datetime
 
+
+
 def chat_gpt(api_key,question, file):
 
     llm = ChatOpenAI(model="gpt-3.5-turbo", openai_api_key=api_key)

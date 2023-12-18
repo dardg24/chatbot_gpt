@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import mysql.connector
 import funciones
+import pandas as pd
+import pymysql
+import json
 from pymysql import Error
 import os
 
@@ -74,14 +77,70 @@ def consulta():
     
 @app.route('/resumen', methods=['GET'])
 def resumen():
-
-    registro = session["registro"]
     
-    return render_template('template3.html',fecha=registro["fecha_hora"], prompt=registro["pregunta"], respuesta=registro["respuesta"])
+    #----------------------------------------------CONEXION AWS----------------------------------------------------
+    #cargamos credenciales
+    registro = session["registro"]
+    with open("cred.json", "r") as file:
+        data = json.load(file)
+
+    username = data["username"]
+    password = data["password"]
+    host = data["host"]
+    port = data["port"]
+    db = pymysql.connect(host = host,
+                        user = username,
+                        password = password,
+                        port = port,
+                        cursorclass = pymysql.cursors.DictCursor
+                        )
+    
+    cursor = db.cursor()
+    use_db = ''' USE bbdd_gpt_2'''
+    cursor.execute(use_db)
 
 
 
-#----------------------------------------------CONEXION AWS----------------------------------------------------
+    create_pregunta_table = """
+    CREATE TABLE IF NOT EXISTS Pregunta (
+    id_pregunta INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    fecha_pregunta DATE NOT NULL,
+    texto_pregunta VARCHAR(255) NOT NULL,
+    texto_respuesta VARCHAR(255) NOT NULL);
+    """
+
+    cursor.execute(create_pregunta_table)
+
+    """sql_query = "SELECT MAX(id_usuario) FROM Pregunta"
+
+    # Ejecutar la consulta
+    cursor.execute(sql_query)
+
+    # Obtener el resultado
+    ID = cursor.fetchone()
+
+    if ID == "NULL":
+        ID = 0
+    """
+
+
+    sql_insert1 = "INSERT INTO Pregunta (fecha_pregunta, texto_pregunta, texto_respuesta) VALUES (%s, %s, %s)"
+    #sql_insert2 = "INSERT INTO Fecha (id_pregunta, fecha_pregunta, fecha_respuesta, id_pregunta) VALUES (%s, %s, %s, %s)"
+    #sql_insert3 = "INSERT INTO ******** (id_pregunta, texto_respuesta, id_fecha, id_pregunta, id_fecha) VALUES (%s, %s)"
+
+    cursor.execute(sql_insert1, (registro["fecha_hora"], registro["pregunta"], registro["respuesta"]))
+    cursor.connection.commit()
+
+    # Ejecutar la consulta SQL
+    query = "SELECT * FROM Pregunta;"
+    #df = pd.read_sql_query(query, db)
+    cursor.execute(query)
+    resultado = cursor.fetchall()
+    #retornamos para abrir el HTML
+    
+    return render_template('template3.html',fecha=registro["fecha_hora"], prompt=registro["pregunta"], respuesta=registro["respuesta"], dataframe=resultado)
+
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=3306)
