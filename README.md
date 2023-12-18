@@ -35,7 +35,7 @@ Para ejecutar la aplicación en un contenedor Docker, sigue estos pasos:
    - Asegúrate de que el puerto que deseas usar esté libre.
    - Utiliza el comando `docker run` con el mapeo de puertos apropiado. Por ejemplo:
      ```bash
-     docker run -p 5000:5000 mi-app-flask
+     docker run -p 5000:3306 dardg24/mi-app-flask:v2
      ```
 
 4. Accede a la aplicación a través de `http://localhost:5000` en tu navegador.
