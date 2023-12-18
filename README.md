@@ -1,7 +1,7 @@
 
 # Proyecto Flask con Docker
 
-Este proyecto consiste en una aplicación web desarrollada con Flask y desplegada en un contenedor Docker.
+Este proyecto consiste en una aplicación web desarrollada con Flask y desplegada en un contenedor Docker, con una base de datos alojada en AWS.
 
 ## Autores
 
@@ -16,6 +16,7 @@ Este proyecto consiste en una aplicación web desarrollada con Flask y desplegad
 - Aplicación Flask para responder preguntas utilizando GPT.
 - Uso de Docker para contenerizar y desplegar la aplicación.
 - Conexión a base de datos MySQL para almacenamiento de datos.
+- Alojamiento de la base de datos en AWS.
 
 ## Uso
 
