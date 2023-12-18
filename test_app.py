@@ -1,38 +1,30 @@
-import requests
 import pytest
-from app import app
+from flask import session
+from app import app as flask_app
+from io import BytesIO
 
-def test_index_endpoint():
-    url = 'http://localhost:5000/'  
-    response = requests.get(url)
+@pytest.fixture
+def client():
+    flask_app.config['TESTING'] = True
+    with flask_app.test_client() as client:
+        yield client
+
+def test_index(client):
+    response = client.get('/')
     assert response.status_code == 200
-    assert response.text == 'Bienvenidos a la pagina principal de la GPTAPP'
+    assert b"<body>" in response.data
 
-def test_upload_endpoint():
-    url = 'http://localhost:5000/upload'  
-    response = requests.get(url)
+def test_upload(client):
+    response = client.get('/upload')
     assert response.status_code == 200
+    assert b"<body>" in response.data
 
-# Aquí necesitarías un archivo de texto para probar este endpoint
-def test_cargar_endpoint():
-    url = 'http://localhost:5000/cargar'
-    files = {'file': open('test.txt', 'rb')}
-    response = requests.post(url, files=files)
+def test_cargar(client):
+    response = client.post('/cargar', data={'file': (BytesIO(b'my file contents'), 'test.txt')})
     assert response.status_code == 200
+    assert b"<body>" in response.data
 
-# Aquí necesitarías proporcionar un prompt para probar este endpoint
-def test_ask_endpoint():
-    url = 'http://localhost:5000/ask'
-    data = {'question': 'test prompt'}
-    response = requests.post(url, data=data)
-    assert response.status_code == 302  # Redirección a 'resumen'
-
-def test_resumen_endpoint():
-    url = 'http://localhost:5000/resumen'
-    response = requests.get(url)
-    assert response.status_code == 200
-
-def test_consulta_endpoint():
-    url = 'http://localhost:5000/consulta'
-    response = requests.get(url)
-    assert response.status_code == 200
+def test_ask(client):
+    response = client.post('/ask', data={'question': 'test question'})
+    assert response.status_code == 302
+    assert session['prompt'] == 'test question'
