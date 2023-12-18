@@ -1,11 +1,19 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import mysql.connector
 import funciones
-import pandas as pd
 import pymysql
 import json
 from pymysql import Error
 import os
+
+
+credenciales = {
+    "username": "admin",
+    "password": "Aurorayana2",
+    "host": "database-1.cyfw9nhe9phu.eu-north-1.rds.amazonaws.com",
+    "port": 3306
+}
+
 
 app = Flask(__name__)
 app.secret_key = 'awagga'
@@ -20,7 +28,7 @@ def index():
 
 @app.route('/upload', methods=['GET'])
 def text():
-
+    
     return render_template('template1.html')
 
 #------------------------------------------------------Cargar archivo--------------------------------------------
@@ -81,20 +89,12 @@ def resumen():
     #----------------------------------------------CONEXION AWS----------------------------------------------------
     #cargamos credenciales
     registro = session["registro"]
-    with open("cred.json", "r") as file:
-        data = json.load(file)
+    db = pymysql.connect(host=credenciales["host"],
+                     user=credenciales["username"],
+                     password=credenciales["password"],
+                     port=credenciales["port"],
+                     cursorclass=pymysql.cursors.DictCursor)
 
-    username = data["username"]
-    password = data["password"]
-    host = data["host"]
-    port = data["port"]
-    db = pymysql.connect(host = host,
-                        user = username,
-                        password = password,
-                        port = port,
-                        cursorclass = pymysql.cursors.DictCursor
-                        )
-    
     cursor = db.cursor()
     use_db = ''' USE bbdd_gpt_2'''
     cursor.execute(use_db)
