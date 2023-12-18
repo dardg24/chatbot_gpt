@@ -23,7 +23,7 @@ Para ejecutar la aplicación en un contenedor Docker, sigue estos pasos:
 
 1. Clona el repositorio:
    ```bash
-   git clone [URL del repositorio]
+   git clone [URL del repositorio](https://github.com/dardg24/chatbot_gpt)]
    ```
 
 2. Construye la imagen Docker:
