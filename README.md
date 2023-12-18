@@ -45,7 +45,7 @@ Para ejecutar la aplicación en un contenedor Docker, sigue estos pasos:
 
 El `Dockerfile` incluido en este repositorio se utiliza para construir la imagen de Docker de la aplicación. La configuración es la siguiente:
 
-- Imagen base de Python 3.9-slim.
+- Imagen base de Python 3.8-slim.
 - Instalación de dependencias desde `requirements.txt`.
 - Exposición del puerto 5000.
 - Uso de Gunicorn como servidor web.
