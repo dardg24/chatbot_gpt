@@ -8,16 +8,16 @@ import os
 
 
 credenciales = {
-    "username": "admin",
-    "password": "Aurorayana2",
-    "host": "database-1.cyfw9nhe9phu.eu-north-1.rds.amazonaws.com",
+    "username": "yourusername",
+    "password": "youpassword",
+    "host": "exampleofhostpage",
     "port": 3306
 }
 
 
 app = Flask(__name__)
-app.secret_key = 'awagga'
-key = "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"
+app.secret_key = 'youruser'
+key = "your_secret_key"
 #---------------------------------------INDEX-------------------------------------------
 @app.route('/', methods=['GET'])
 def index():
