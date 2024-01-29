@@ -14,26 +14,26 @@ Use of Docker to containerize and deploy the application.
 Connection to a MySQL database for data storage.
 Database hosting on AWS.
 Usage
+
 To run the application in a Docker container, follow these steps:
 
-Clone the repository:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dardg24/chatbot_gpt
+   ```
 
-bash
-Copy code
-git clone https://github.com/dardg24/chatbot_gpt
-Download the Docker image:
+     ```
+2. Download the Docker image:
+   ```bash
+   docker pull dardg24/mi-app-flask:v2
+   ```
 
-bash
-Copy code
-docker pull dardg24/my-flask-app:v2
-Run the image in a container:
+3. Ensure the port you want to use is free.
+- Use the docker run command with appropriate port mapping. For example:
+     ```bash
+     docker run -p 5000:3306 dardg24/mi-app-flask:v2
 
-Ensure the port you want to use is free.
-Use the docker run command with appropriate port mapping. For example:
-bash
-Copy code
-docker run -p 5000:3306 dardg24/my-flask-app:v2
-Access the application through http://localhost:5000 in your browser.
+4. Access the application through http://localhost:5000 in your browser.
 
 Deployment in Docker
 The Dockerfile included in this repository is used to build the Docker image of the application. The configuration is as follows:
@@ -44,6 +44,9 @@ Exposure of port 5000.
 Use of Gunicorn as a web server.
 License
 This project is under the MIT License. For more details, see the LICENSE file.
+
+
+
 
 # Proyecto Flask con Docker
 
