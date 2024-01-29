@@ -1,4 +1,4 @@
-<img src="chatbot_gpt/app/img/chatbot_gpt.png" width="700">
+<img src="app/img/chatbot_gpt.png" width="700">
 
 
 Flask Project with Docker
