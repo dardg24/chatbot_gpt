@@ -1,7 +1,7 @@
+Flask Project with Docker
+
 <img src="app/img/chatbot_gpt.png" width="700">
 
-
-Flask Project with Docker
 This project consists of a web application developed using Flask and deployed in a Docker container, with a database hosted on AWS.
 
 ## Authors
@@ -53,6 +53,8 @@ This project is under the MIT License. For more details, see the LICENSE file.
 ## Spanish
 
 # Proyecto Flask con Docker
+
+<img src="app/img/chatbot_gpt.png" width="700">
 
 Este proyecto consiste en una aplicación web desarrollada con Flask y desplegada en un contenedor Docker, con una base de datos alojada en AWS.
 
