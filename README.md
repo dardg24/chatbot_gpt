@@ -1,4 +1,50 @@
 
+Flask Project with Docker
+This project consists of a web application developed using Flask and deployed in a Docker container, with a database hosted on AWS.
+
+Authors
+Ana Fernandez
+Adrián Nieto
+Daniel Gouveia
+Daniel Manso
+Guillermo Pereda
+Features
+Flask application to answer questions using GPT.
+Use of Docker to containerize and deploy the application.
+Connection to a MySQL database for data storage.
+Database hosting on AWS.
+Usage
+To run the application in a Docker container, follow these steps:
+
+Clone the repository:
+
+bash
+Copy code
+git clone https://github.com/dardg24/chatbot_gpt
+Download the Docker image:
+
+bash
+Copy code
+docker pull dardg24/my-flask-app:v2
+Run the image in a container:
+
+Ensure the port you want to use is free.
+Use the docker run command with appropriate port mapping. For example:
+bash
+Copy code
+docker run -p 5000:3306 dardg24/my-flask-app:v2
+Access the application through http://localhost:5000 in your browser.
+
+Deployment in Docker
+The Dockerfile included in this repository is used to build the Docker image of the application. The configuration is as follows:
+
+Base image of Python 3.8-slim.
+Installation of dependencies from requirements.txt.
+Exposure of port 5000.
+Use of Gunicorn as a web server.
+License
+This project is under the MIT License. For more details, see the LICENSE file.
+
 # Proyecto Flask con Docker
 
 Este proyecto consiste en una aplicación web desarrollada con Flask y desplegada en un contenedor Docker, con una base de datos alojada en AWS.
