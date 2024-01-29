@@ -1,3 +1,5 @@
+<img src="chatbot_gpt\app\img\chatbot_gpt.png" width="700">
+
 
 Flask Project with Docker
 This project consists of a web application developed using Flask and deployed in a Docker container, with a database hosted on AWS.

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import mysql.connector
-import funciones
+import chatbot_gpt.app.src.funciones as funciones
 import pymysql
 import json
 from pymysql import Error
