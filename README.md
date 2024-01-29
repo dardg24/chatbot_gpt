@@ -21,8 +21,7 @@ To run the application in a Docker container, follow these steps:
    ```bash
    git clone https://github.com/dardg24/chatbot_gpt
    ```
-
-     ```
+   
 2. Download the Docker image:
    ```bash
    docker pull dardg24/mi-app-flask:v2
