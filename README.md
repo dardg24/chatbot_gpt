@@ -2,18 +2,21 @@
 Flask Project with Docker
 This project consists of a web application developed using Flask and deployed in a Docker container, with a database hosted on AWS.
 
-Authors
-Ana Fernandez
-Adrián Nieto
-Daniel Gouveia
-Daniel Manso
-Guillermo Pereda
-Features
-Flask application to answer questions using GPT.
-Use of Docker to containerize and deploy the application.
-Connection to a MySQL database for data storage.
-Database hosting on AWS.
-Usage
+## Authors
+- Ana Fernandez
+- Adrián Nieto
+- Daniel Gouveia
+- Daniel Manso
+- Guillermo Pereda
+
+
+## Features
+- Flask application to answer questions using GPT.
+- Use of Docker to containerize and deploy the application.
+- Connection to a MySQL database for data storage.
+- Database hosting on AWS.
+
+##Usage
 
 To run the application in a Docker container, follow these steps:
 
